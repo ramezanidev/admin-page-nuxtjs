@@ -3,7 +3,7 @@
     <div>
       <app-aside />
     </div>
-    <div class="flex flex-auto flex-col">
+    <div class="flex flex-auto flex-col w-full">
       <app-header class="w-full" />
       <transition name="bounce">
         <Nuxt class="flex flex-auto"/>
@@ -31,5 +31,10 @@ button{
     opacity: 1;
     transform: translateX(0px);
   }
+}
+
+*:active{
+  -webkit-tap-highlight-color: transparent;
+  transition: 0s;
 }
 </style>

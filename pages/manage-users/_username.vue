@@ -5,10 +5,10 @@
       style="max-width: 950px; min-height: 250px"
     >
       <div class="w-full p-3 text-white from-gray-800 bg-gradient-to-b rounded-t pb-8">
-        <div class="flex justify-between h-20">
+        <div class="flex sm:flex-col justify-between h-20 sm:h-auto">
           <div class="flex">
             <img
-              class="w-20 h-20 ml-1 mr-3 object-cover rounded-full ring-1 ring-blue-600 ring-offset-gray-900 ring-offset-2"
+              class="w-20 h-20 sm:w-32 sm:h-32 ml-1 mr-3 object-cover rounded-full ring-1 ring-blue-600 ring-offset-gray-900 ring-offset-2"
               :src="user.profile"
               alt=""/>
             <div class="flex flex-col justify-start">
@@ -16,12 +16,12 @@
               <span class="text-sm text-blue-200">{{ user.username }}</span>
             </div>
           </div>
-          <div class="flex flex-col text-center justify-start">
+          <div class="flex flex-col text-center sm:mt-3 sm:text-left justify-start">
             <p class="text-gray-400 text-sm">{{ user.email }}</p>
             <p class="text-blue-200 text-sm">{{ user.phone }}</p>
           </div>
-          <div class="flex items-start">
-            <div class="flex flex-col text-center">
+          <div class="flex items-start sm:mt-2">
+            <div class="flex flex-col text-center sm:text-left">
               <p class="text-gray-400 text-xs">last seen: {{ user.lastSeen }}</p>
               <p class="text-gray-400 text-xs">last seen: {{ user.lastSeen }}</p>
             </div>
@@ -145,7 +145,7 @@ export default {
 </script>
 
 
-<style>
+<style lang="scss" scoped>
 .lists > li{
   transition: .2s all ease-in-out;
 }
@@ -158,5 +158,17 @@ export default {
 }
 .lists > li:last-of-type{
   border-bottom: none !important;
+}
+
+@media (max-width: 868px) {
+  .lists{
+    overflow-x: scroll;
+    & > * {
+      min-width: 1000px;
+    }
+    &:hover > li{
+      opacity: 1;
+    }
+  }
 }
 </style>

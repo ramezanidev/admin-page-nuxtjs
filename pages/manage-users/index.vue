@@ -29,16 +29,16 @@
                   <span class="text-sm text-blue-200">{{user.username}}</span>
                 </div>
               </div>
-              <div class="flex flex-col text-center justify-center">
+              <div class="flex flex-col text-center sm:text-right justify-center">
                 <p class="text-gray-400 text-sm">{{user.email}}</p>
                 <p class="text-blue-200 text-sm">{{user.phone}}</p>
               </div>
-              <div class="flex items-center">
+              <div class="flex items-center sm:hidden">
                 <div class="flex flex-col text-center">
                   <p class="text-gray-400 text-xs">last seen: {{user.lastSeen}}</p>
                   <p class="text-gray-400 text-xs">last seen: {{user.lastSeen}}</p>
                 </div>
-                <span class="flex ml-3 group-hover:ml-5 transition-all h-full">
+                <span class="flex sm:hidden ml-3 group-hover:ml-5 transition-all h-full">
                   <svg
                     class="fill-current cursor-pointer text-blue-600 w-3 transform -rotate-90 group-hover:scale-110 duration-500 group-hover:rotate-0 transition-all"
                     xmlns="http://www.w3.org/2000/svg"
