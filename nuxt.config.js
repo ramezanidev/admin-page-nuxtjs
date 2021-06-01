@@ -17,6 +17,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/Fontiran/css/fontiran.css'
   ],
 
   loading: {
@@ -44,7 +45,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-
+    analyze: true,
+    extractCSS: true,
   },
 
   server:{

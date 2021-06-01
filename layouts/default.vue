@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen" style="background-color: #0c111c">
+  <div class="flex h-full" style="background-color: #0c111c">
     <div>
       <app-aside />
     </div>
@@ -13,7 +13,19 @@
 </template>
 
 <style>
-button{
+
+html,body,#__layout,#__nuxt{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'IRANSans';
+}
+@media (hover: none) {
+  *{
+    -webkit-tap-highlight-color: transparent !important;
+  }
+}
+button,input,textarea,a{
   outline: none !important;
 }
 .bounce-enter-active {
@@ -31,10 +43,5 @@ button{
     opacity: 1;
     transform: translateX(0px);
   }
-}
-
-*:active{
-  -webkit-tap-highlight-color: transparent;
-  transition: 0s;
 }
 </style>

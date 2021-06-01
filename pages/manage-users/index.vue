@@ -111,9 +111,9 @@ export default {
   }),
   methods:{
     searchUser(){
-      if(this.search.input.length){
+      if(this.search.input){
         this.search.template || (this.search.template = this.users);
-        this.users = this.search.template.filter(e=> (e.name.includes(this.search.input) || e.family.includes(this.search.input) || e.email.includes(this.search.input) || e.phone.includes(this.search.input)))
+        this.users = this.search.template.filter(e=> (e.name.includes(this.search.input) || e.username.includes(this.search.input) || e.email.includes(this.search.input) || e.phone.includes(this.search.input)))
       }else{
         this.users = this.search.template;
         this.search.template = ''

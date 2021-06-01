@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-y-scroll scrollbar flex justify-center">
+  <div class="overflow-y-scroll overflow-x-hidden scrollbar flex justify-center">
     <div
       class="w-full relative mt-12 mx-4"
       style="max-width: 950px; min-height: 250px"
@@ -16,6 +16,7 @@
               <span class="text-sm text-blue-200">{{ user.username }}</span>
             </div>
           </div>
+          <hr class="mt-4 hidden sm:block border-gray-600 border-opacity-50">
           <div class="flex flex-col text-center sm:mt-3 sm:text-left justify-start">
             <p class="text-gray-400 text-sm">{{ user.email }}</p>
             <p class="text-blue-200 text-sm">{{ user.phone }}</p>
@@ -31,8 +32,7 @@
           <div class="mb-3">
             <h2 class="font-bold text-xl">Course</h2>
           </div>
-          <ul class="lists">
-
+          <ul class="lists sm:shadow-inner">
             <div class="px-1 grid grid-cols-5 text-blue-300 border-b border-blue-600 pb-1.5 select-none cursor-default border-opacity-60">
               <span>course</span>
               <span>Date</span>
@@ -40,7 +40,8 @@
               <span>Status</span>
               <span>Remove</span>
             </div>
-            <li v-for="i in 8" :key="i" class="px-1 grid items-center text-sm text-white font-bold grid-cols-5 text-gray-300 border-b border-gray-600 py-1.5 select-none cursor-default border-opacity-40">
+            <li v-for="i in 8" :key="i"
+                class="px-1 grid items-center text-sm text-white font-bold grid-cols-5 text-gray-300 border-b border-gray-600 py-1.5 select-none cursor-default border-opacity-40">
               <span>JavaScript</span>
               <span>2020/01/13-13:17</span>
               <span>200,000</span>
@@ -48,15 +49,15 @@
               <button class="bg-red-600 rounded text-sm active:bg-red-800 hover:bg-red-700 h-7">remove</button>
             </li>
           </ul>
-        </div>
-
+          </div>
         <div class="w-full bg-gray-800 shadow-md bg-opacity-75 rounded p-1.5 my-5">
           <div class="mb-3">
             <h2 class="font-bold text-xl">Comments</h2>
           </div>
-          <ul class="lists">
+          <ul class="lists sm:shadow-inner">
 
-            <div class="px-1 grid grid-cols-5 text-blue-300 border-b border-blue-600 pb-1.5 select-none cursor-default border-opacity-60">
+            <div
+              class="px-1 grid grid-cols-5 text-blue-300 border-b border-blue-600 pb-1.5 select-none cursor-default border-opacity-60">
               <span>Comment</span>
               <span>Date</span>
               <span>Page</span>
@@ -66,7 +67,8 @@
                 <span>Edit</span>
               </div>
             </div>
-            <li v-for="i in 8" :key="i" class="px-1 grid items-center text-sm text-white font-bold grid-cols-5 text-gray-300 border-b border-gray-600 py-1.5 select-none cursor-default border-opacity-40">
+            <li v-for="i in 8" :key="i"
+                class="px-1 grid items-center text-sm text-white font-bold grid-cols-5 text-gray-300 border-b border-gray-600 py-1.5 select-none cursor-default border-opacity-40">
               <span>lorem lorem lorem lorem lorem lorem lorem lorem lorem</span>
               <span>2020/01/13-13:17</span>
               <span>200,000</span>

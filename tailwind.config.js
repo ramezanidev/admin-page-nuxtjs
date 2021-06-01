@@ -8,9 +8,11 @@ module.exports = {
    ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
     screens:{
       sm: {'max': '868px'}
+    },
+    fontFamily: {
+      iran: ['IRANSans']
     }
   },
   variants:{
@@ -27,5 +29,4 @@ module.exports = {
       display: ['group-hover']
     }
   },
-  plugins: [],
 }

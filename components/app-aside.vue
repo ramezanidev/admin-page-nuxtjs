@@ -99,7 +99,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  watch:{
+    $route(){
+      if(window.innerWidth <= 868){
+        this.$refs.menu.classList.add('close-menu')
+      }
+    }
+  }
+};
 </script>
 
 <style scoped lang="scss">
@@ -179,7 +187,7 @@ export default {};
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 868px) {
   .menu{
     @apply fixed top-16 bottom-16 left-0 rounded-r-xl h-auto;
     z-index: 2;
@@ -188,7 +196,7 @@ export default {};
     }
   }
   .menu-btn {
-    @apply fixed h-12 w-12 border-0 rounded-full right-5 bottom-5 p-0 m-0 bg-opacity-100;
+    @apply fixed h-12 w-12 border-0 bg-gray-900 shadow border border-blue-600 border-opacity-20 bg-opacity-80 rounded-full right-5 bottom-5 p-0 m-0 bg-opacity-100;
   }
   .close-menu{
     @apply -left-16;
