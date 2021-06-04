@@ -18,6 +18,8 @@ html,body,#__layout,#__nuxt{
   height: 100%;
   width: 100%;
   overflow: hidden;
+}
+*{
   font-family: 'IRANSans';
 }
 @media (hover: none) {

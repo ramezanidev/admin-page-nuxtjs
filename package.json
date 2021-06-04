@@ -9,6 +9,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@types/chart.js": "^2.9.32",
+    "apexcharts": "^3.26.3",
+    "chart.js": "^3.3.2",
     "core-js": "^3.9.1",
     "nuxt": "^2.15.3"
   },
