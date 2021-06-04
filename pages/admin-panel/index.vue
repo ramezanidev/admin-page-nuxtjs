@@ -6,7 +6,7 @@
         <div
           class="bg-gradient-to-b flex from-gray-900 via-gray-900 border-t-2 border-blue-600 border-opacity-25 rounded shadow p-2">
 
-          <nuxt-link to="/admin-page/comments/new"
+          <nuxt-link to="/admin-panel/comments/new"
                      class="h-12 w-12 flex relative rounded-full mx-1 bg-blue-600 bg-opacity-0 hover:bg-opacity-10 transition-all">
             <span class="absolute top-2.5 right-2.5 block w-1.5 h-1.5 bg-opacity-70 rounded-full bg-red-600">
               <span class="block w-1.5 h-1.5 rounded-full bg-red-600 animate-ping"></span>
@@ -18,7 +18,7 @@
             </svg>
           </nuxt-link>
 
-          <nuxt-link to="/admin-page/notification"
+          <nuxt-link to="/admin-panel/notification"
                      class="h-12 w-12 flex relative rounded-full mx-1 bg-blue-600 bg-opacity-0 hover:bg-opacity-10 transition-all">
             <span class="absolute top-2.5 right-2.5 block w-1.5 h-1.5 bg-opacity-70 rounded-full bg-red-600">
               <span class="block w-1.5 h-1.5 rounded-full bg-red-600 animate-ping"></span>
@@ -30,7 +30,7 @@
             </svg>
           </nuxt-link>
 
-          <nuxt-link to="/admin-page/email"
+          <nuxt-link to="/admin-panel/email"
                      class="h-12 w-12 flex relative rounded-full mx-1 bg-blue-600 bg-opacity-0 hover:bg-opacity-10 transition-all">
             <span class="absolute top-2.5 right-2.5 block w-1.5 h-1.5 bg-opacity-70 rounded-full bg-red-600">
               <span class="block w-1.5 h-1.5 rounded-full bg-red-600 animate-ping"></span>
@@ -42,7 +42,7 @@
             </svg>
           </nuxt-link>
 
-          <nuxt-link to="/admin-page/sms"
+          <nuxt-link to="/admin-panel/sms"
                      class="h-12 w-12 flex relative rounded-full mx-1 bg-blue-600 bg-opacity-0 hover:bg-opacity-10 transition-all">
             <span class="absolute top-2.5 right-2.5 block w-1.5 h-1.5 bg-opacity-70 rounded-full bg-red-600">
               <span class="block w-1.5 h-1.5 rounded-full bg-red-600 animate-ping"></span>
