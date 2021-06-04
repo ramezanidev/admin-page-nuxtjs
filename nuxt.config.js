@@ -45,13 +45,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    analyze: true,
     extractCSS: true,
   },
-
-
-  server:{
-    host: '192.168.1.100',
-    port: 8080
-  }
 }
