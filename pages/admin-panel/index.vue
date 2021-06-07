@@ -204,7 +204,7 @@
           <transition-group name="users" tag="ul" style="background-color: #0c111c"
                             class="text-white p-0 mt-1 rounded overflow-hidden h-0 transition-all duration-300">
             <li
-              v-for="(user, i) in users"
+              v-for="(user) in users"
               :key="user.email"
               class="h-14 flex p-2 my-2 hover:mb-3 from-gray-800 duration-500 cursor-pointer bg-gradient-to-b group transition-all hover:h-20"
             >
