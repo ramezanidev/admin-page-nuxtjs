@@ -10,16 +10,13 @@
         <div
           class="bg-gradient-to-b from-gray-900 via-gray-900 p-2.5 border-t border-blue-600 border-opacity-25 rounded shadow">
           <div class="flex w-full sm:flex-col">
-            <div class="sm:mb-4 sm:flex-col">
+            <div class="sm:mb-4 sm:flex-col flex">
               <span class="w-24 text-white font-bold">to :</span>
               <div>
                 <div class="flex">
                   <input @keydown.enter="addPhone" placeholder="Enter Phone Number..." v-model.trim="sms.to.input"
                          type="text" class="bg-gray-700 flex-auto rounded text-white px-3 py-1">
-                  <button @click="addPhone"
-                          class="bg-green-600 rounded text-green-100 ml-2 py-1 px-3 active:bg-green-700">
-                    Add
-                  </button>
+                  <button @click="addPhone" class="bg-green-600 rounded text-green-100 ml-2 py-1 px-3 active:bg-green-700">Add</button>
                 </div>
                 <transition name="sendToList">
                   <transition-group tag="div" name="sendToList" class="p-2 rounded mt-2 bg-gray-800"
