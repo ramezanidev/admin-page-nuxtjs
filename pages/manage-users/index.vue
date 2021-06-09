@@ -9,7 +9,6 @@
           <h2 class="text-2xl">Users</h2>
           <div>
             <input v-model="search.input" @input="searchUser" class="py-1 px-2 mx-1 w-56 bg-gray-800 text-sm rounded text-gray-100" placeholder="search user ...">
-            <button @click="searchUser" class="bg-blue-600 text-sm rounded py-1 px-2 active:bg-blue-700">search</button>
           </div>
         </div>
         <transition-group name="users" tag="ul" class="rounded-md mt-3 overflow-hidden flex flex-col table-user">

@@ -21,6 +21,7 @@ module.exports = {
       margin: ['hover','group-hover'],
       height: ['hover','group-hover'],
       rotate: ['group-hover'],
+      opacity: ['checked'],
       width: ['group-hover'],
       inset: ['hover','group-hover'],
       scale: ['hover','group-hover'],
