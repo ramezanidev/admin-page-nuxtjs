@@ -27,6 +27,14 @@ html,body,#__layout,#__nuxt{
     -webkit-tap-highlight-color: transparent !important;
   }
 }
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 button,input,textarea,a{
   outline: none !important;
 }
