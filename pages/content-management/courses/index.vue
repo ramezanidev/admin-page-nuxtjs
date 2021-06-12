@@ -76,11 +76,13 @@
           <span
             class="flex justify-center items-center w-8 h-8 rounded shadow text-gray-100 bg-gray-700 select-none cursor-pointer active:bg-gray-800 "
             @click="page--">-</span>
+
           <div class="flex mx-1">
-            <span v-for="i in 5"
+            <span v-for="i in range"
                   class="flex mx-0.5 justify-center items-center w-8 h-8 rounded shadow text-blue-100 bg-blue-800 select-none cursor-pointer active:bg-blue-900 opacity-50"
-                  :class="{'opacity-100' : i === +page}" @click="page = i">{{ i }}</span>
+                  :class="{'opacity-100' : i === page}" @click="page = i">{{ i }}</span>
           </div>
+
           <span
             class="flex justify-center items-center w-8 h-8 rounded shadow text-gray-100 bg-gray-700 select-none cursor-pointer active:bg-gray-800 "
             @click="page++">+</span>
@@ -93,9 +95,7 @@
 
 <script>
 export default {
-  data: () => ({
-
-  }),
+  data: () => ({}),
   watchQuery: ['page'],
   async asyncData({query, data}) {
     const mountains = await new Promise((resolve) => {
@@ -106,43 +106,49 @@ export default {
     let courses = [
       {
         course: 'js',
-      },{
+      }, {
         course: 'ts',
-      },{
+      }, {
         course: 'es',
-      },{
+      }, {
         course: 'ejs',
-      },{
+      }, {
         course: 'jsx',
-      },{
+      }, {
         course: 'js',
-      },{
+      }, {
         course: 'ts',
-      },{
+      }, {
         course: 'es',
-      },{
+      }, {
         course: 'ejs',
-      },{
+      }, {
         course: 'jsx',
-      },{
+      }, {
         course: 'js',
-      },{
+      }, {
         course: 'ts',
       }
     ];
     let num = 10
-    return {mountains,num,courses}
+    return {mountains, num, courses}
   },
   computed: {
     page: {
       get() {
-        return this.$route.query.page || '0'
+        return +this.$route.query.page || 1
       },
       set(page) {
         this.$router.push({path: this.$route.path, query: {page: page.toString()}})
       }
+    },
+
+    range() {
+      const start = (this.page - 3) <= 0 ? 1 : this.page - 3;
+      const end = this.page + 4;
+      return Array(Math.ceil(end - start)).fill(start).map((x, y) => x + y);
     }
-  }
+  },
 }
 </script>
 
