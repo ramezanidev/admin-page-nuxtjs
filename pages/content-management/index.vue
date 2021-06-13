@@ -30,61 +30,12 @@
 
       <div
         class="bg-gradient-to-b mt-5 from-gray-900 via-gray-900 p-2.5 border-t border-blue-600 border-opacity-25 rounded shadow">
-        <div class="flex justify-between w-full">
-          <h1 class="text-white text-xl">Courses</h1>
-          <div>
-            <div class="h-6 flex">
-              <span
-                class="h-full rounded-l bg-red-600 text-red-100 px-1 pt-0.5 cursor-pointer w-4 select-none font-bold"
-                :class="{'opacity-50' : num === 5}" @click="num<=5 ? null : num-=5">-</span>
-              <span class="bg-gray-700 py-1 px-2 text-sm text-white w-10 h-full text-center"
-                    @wheel="$event.deltaY < 0 ? (num>=100 ? null : num+=5) : (num<=5 ? null : num-=5)">{{ num }}</span>
-              <span
-                class="h-full rounded-r bg-green-600 text-green-100 px-1 pt-0.5 cursor-pointer w-4 select-none font-bold"
-                :class="{'opacity-50' : num === 100}" @click="num>=100 ? null : num+=5">+</span>
-            </div>
-          </div>
+
+
+        <div class="tab">
+          <Tab :tabs="tabs"/>
         </div>
-        <div class="w-full bg-gray-800 shadow-md bg-opacity-75 rounded p-1.5 my-5">
-          <ul class="lists sm:shadow-inner">
-            <div
-              class="px-1 grid grid-cols-5 text-blue-300 border-b border-blue-600 pb-1.5 select-none cursor-default border-opacity-60">
-              <span>course</span>
-              <span>Date</span>
-              <span>Price</span>
-              <span>Status</span>
-            </div>
-            <li v-for="i in courses" :key="i"
-                class="px-1 grid items-center text-sm text-white font-bold grid-cols-5 text-gray-300 border-b border-gray-600 py-1.5 select-none cursor-default border-opacity-40">
-              <span>{{ i.course }}</span>
-              <span>2020/01/13-13:17</span>
-              <span>200,000</span>
-              <span>use</span>
-              <nuxt-link title="edit" :to="`/content-management/edit/${i}`"
-                         class="h-8 w-8 flex justify-self-end relative rounded-full mx-1 bg-green-600 bg-opacity-20 transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                     class="w-4 h-4 fill-current text-green-300 m-auto">
-                  <path
-                    d="M493.2 56.26l-37.51-37.51C443.2 6.252 426.8 0 410.5 0c-16.38 0-32.76 6.25-45.26 18.75L31.04 352.1c-2.234 2.234-3.756 5.078-4.377 8.176l-26.34 131.7C-1.703 502.1 6.156 512 15.95 512c1.049 0 2.117-.1035 3.199-.3203l131.7-26.34c3.098-.6191 5.941-2.141 8.176-4.373L493.3 146.7C518.3 121.7 518.2 81.26 493.2 56.26zM112 317.2l203.3-203.3l82.76 82.76L194.7 400H112V317.2zM139.8 454.9l-103.4 20.69l20.68-103.4L80 349.2V432h82.74L139.8 454.9zM470.7 124l-49.1 50l-82.76-82.76l49.91-49.91C393.9 35.33 401.9 32 410.5 32s16.58 3.328 22.62 9.373L470.6 78.89C483.1 91.36 483.1 111.6 470.7 124z"/>
-                </svg>
-              </nuxt-link>
-            </li>
-          </ul>
-        </div>
-        <!--page-->
-        <div class="w-full flex justify-center">
-          <span
-            class="flex justify-center items-center w-8 h-8 rounded shadow text-gray-100 bg-gray-700 select-none cursor-pointer active:bg-gray-800 "
-            @click="page--">-</span>
-          <div class="flex mx-1">
-            <span v-for="i in 5"
-                  class="flex mx-0.5 justify-center items-center w-8 h-8 rounded shadow text-blue-100 bg-blue-800 select-none cursor-pointer active:bg-blue-900 opacity-50"
-                  :class="{'opacity-100' : i === +page}" @click="page = i">{{ i }}</span>
-          </div>
-          <span
-            class="flex justify-center items-center w-8 h-8 rounded shadow text-gray-100 bg-gray-700 select-none cursor-pointer active:bg-gray-800 "
-            @click="page++">+</span>
-        </div>
+
 
       </div>
     </div>
@@ -94,44 +45,64 @@
 <script>
 export default {
   data: () => ({
-
+    tabs: [
+      {
+        title: "courses",
+        children: [
+          {
+            title: "ejs",
+            children: [
+              {
+                title: "es"
+              },
+              {
+                title: "ts"
+              }
+            ]
+          },
+          {
+            title: "js"
+          }
+        ]
+      }
+    ]
   }),
   watchQuery: ['page'],
   async asyncData({query, data}) {
     const mountains = await new Promise((resolve) => {
       setTimeout(() => {
         resolve('foo');
-      }, 1000);
+      }, 1);
     }).then(e => e)
     let courses = [
       {
         course: 'js',
-      },{
+      }, {
         course: 'ts',
-      },{
+      }, {
         course: 'es',
-      },{
+      }, {
         course: 'ejs',
-      },{
+      }, {
         course: 'jsx',
-      },{
+      }, {
         course: 'js',
-      },{
+      }, {
         course: 'ts',
-      },{
+      }, {
         course: 'es',
-      },{
+      }, {
         course: 'ejs',
-      },{
+      }, {
         course: 'jsx',
-      },{
+      }, {
         course: 'js',
-      },{
+      }, {
         course: 'ts',
       }
     ];
     let num = 10
-    return {mountains,num,courses}
+    return {mountains, num, courses}
   },
   computed: {
     page: {
@@ -166,6 +137,38 @@ export default {
     & > * {
       min-width: 1000px;
     }
+  }
+}
+
+.tab {
+  ul {
+    background-color: rgba(255, 255, 255, 0.02);
+    @apply pl-8;
+    li {
+      ul{
+        display: none;
+        svg{
+          transform: rotate(0deg);
+        }
+      }
+      @apply p-2 pr-0 my-0.5 mr-0;
+      span {
+        @apply text-white flex cursor-pointer select-none;
+      }
+    }
+
+    li.open{
+      & > ul{
+        display: block;
+        svg{
+          @apply mr-4 ml-1;
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+  & > ul {
+    @apply pl-0
   }
 }
 </style>

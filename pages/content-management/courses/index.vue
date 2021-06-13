@@ -29,7 +29,7 @@
 
 
       <div
-        class="bg-gradient-to-b mt-5 from-gray-900 via-gray-900 p-2.5 border-t border-blue-600 border-opacity-25 rounded shadow">
+        class="bg-gradient-to-b mt-5 from-gray-900 via-gray-900 p-2.5 border-t border-blue-600 border-opacity-25 rounded shadow pb-40">
         <div class="flex justify-between w-full">
           <h1 class="text-white text-xl">Courses</h1>
           <div>
@@ -54,7 +54,7 @@
               <span>Price</span>
               <span>Status</span>
             </div>
-            <li v-for="i in courses" :key="i"
+            <li v-for="(i, index) in courses" :key="index"
                 class="px-1 grid items-center text-sm text-white font-bold grid-cols-5 text-gray-300 border-b border-gray-600 py-1.5 select-none cursor-default border-opacity-40">
               <span>{{ i.course }}</span>
               <span>2020/01/13-13:17</span>
@@ -75,17 +75,29 @@
         <div class="w-full flex justify-center">
           <span
             class="flex justify-center items-center w-8 h-8 rounded shadow text-gray-100 bg-gray-700 select-none cursor-pointer active:bg-gray-800 "
-            @click="page--">-</span>
+            :class="{'opacity-50' : page === 1}"
+            @click="page--">
+            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current w-3 h-3.5" viewBox="0 0 256 512">
+              <path
+                d="M203.9 405.3c5.877 6.594 5.361 16.69-1.188 22.62c-6.562 5.906-16.69 5.375-22.59-1.188L36.1 266.7c-5.469-6.125-5.469-15.31 0-21.44l144-159.1c5.906-6.562 16.03-7.094 22.59-1.188c6.918 6.271 6.783 16.39 1.188 22.62L69.53 256L203.9 405.3z"/></svg>
+          </span>
+
 
           <div class="flex mx-1">
-            <span v-for="i in range"
+            <span v-for="(i, index) in range"
+                  :key="`${index}`"
                   class="flex mx-0.5 justify-center items-center w-8 h-8 rounded shadow text-blue-100 bg-blue-800 select-none cursor-pointer active:bg-blue-900 opacity-50"
                   :class="{'opacity-100' : i === page}" @click="page = i">{{ i }}</span>
           </div>
 
+
           <span
             class="flex justify-center items-center w-8 h-8 rounded shadow text-gray-100 bg-gray-700 select-none cursor-pointer active:bg-gray-800 "
-            @click="page++">+</span>
+            @click="page++">
+            <svg xmlns="http://www.w3.org/2000/svg" class="fill-current h-3.5 w-3" viewBox="0 0 256 512">
+              <path
+                d="M219.9 266.7L75.89 426.7c-5.906 6.562-16.03 7.094-22.59 1.188c-6.918-6.271-6.783-16.39-1.188-22.62L186.5 256L52.11 106.7C46.23 100.1 46.75 90.04 53.29 84.1C59.86 78.2 69.98 78.73 75.89 85.29l144 159.1C225.4 251.4 225.4 260.6 219.9 266.7z"/></svg>
+          </span>
         </div>
 
       </div>
@@ -96,7 +108,13 @@
 <script>
 export default {
   data: () => ({}),
-  watchQuery: ['page'],
+
+
+  watch: {
+    page: 'changePage'
+  },
+
+
   async asyncData({query, data}) {
     const mountains = await new Promise((resolve) => {
       setTimeout(() => {
@@ -114,31 +132,20 @@ export default {
         course: 'ejs',
       }, {
         course: 'jsx',
-      }, {
-        course: 'js',
-      }, {
-        course: 'ts',
-      }, {
-        course: 'es',
-      }, {
-        course: 'ejs',
-      }, {
-        course: 'jsx',
-      }, {
-        course: 'js',
-      }, {
-        course: 'ts',
       }
     ];
-    let num = 10
+    let num = 5
     return {mountains, num, courses}
   },
+
+
   computed: {
     page: {
       get() {
-        return +this.$route.query.page || 1
+        return +(this.$route.query.page || '1')
       },
       set(page) {
+        page = page < 1 ? 1 : page;
         this.$router.push({path: this.$route.path, query: {page: page.toString()}})
       }
     },
@@ -149,6 +156,16 @@ export default {
       return Array(Math.ceil(end - start)).fill(start).map((x, y) => x + y);
     }
   },
+
+  methods: {
+    async changePage() {
+      const mountains = await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve('foo');
+        }, 10000);
+      }).then(e => e)
+    }
+  }
 }
 </script>
 
@@ -173,5 +190,9 @@ export default {
       min-width: 1000px;
     }
   }
+}
+
+.flip-list-move {
+  transition: transform 1s;
 }
 </style>
