@@ -1,7 +1,7 @@
 # admin-page
 
 ## Build Setup
-
+Demo: [admin-page-nuxtjs.vercel.app](https://admin-page-nuxtjs.vercel.app)
 ```bash
 # install dependencies
 $ npm install
